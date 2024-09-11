@@ -1,14 +1,16 @@
 import router from 'express'
-import { getCuenta, postCuenta, putCuenta, deleteCuenta} from '../controllers/cuentaController.js';
+import { getCuenta, postCuenta, deleteCuenta, NuevoSaldo} from '../controllers/cuentaController.js';
 
 
 
 const cuentasRouter = router();
 
-cuentasRouter.get('/',getCuenta)
+cuentasRouter.get('/:estado',getCuenta)
+// cuentasRouter.get('/:estado',getOneCuenta)
 cuentasRouter.post('/',postCuenta)
-cuentasRouter.put('/:id',putCuenta)
+// cuentasRouter.put('/:id',putCuenta)
 cuentasRouter.delete('/:id',deleteCuenta)
+cuentasRouter.put('/:numeroCuenta',NuevoSaldo)
 
 
 

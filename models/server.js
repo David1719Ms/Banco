@@ -3,14 +3,14 @@ import dbConnect from '../database/config.js';
 import '../database/config.js';
 
 import cuentasRouter from '../routes/cuentaRoute.js';
-import { getCuenta, postCuenta, putCuenta, deleteCuenta } from '../controllers/cuentaController.js';
+import { getCuenta, postCuenta, deleteCuenta, NuevoSaldo } from '../controllers/cuentaController.js';
 
 class Server {
     constructor(){
         this.app = express();
         this.listen();
         this.dbConnection(); 
-        this.pathCuentas = '/api/cuenta';
+        // this.pathCuentas = '/api/cuenta';
         this.route();
     }
 
@@ -19,12 +19,15 @@ class Server {
     }
     route(){
         this.app.use(json())
-        this.app.use(this.pathCuentas, cuentasRouter)
+        this.app.use('/api/cuenta', cuentasRouter)
+        // this.app.use(this.pathCuentas, cuentasRouter)
         //////////////////////////////////////////////////
-        this.app.get(this.pathCuentas, getCuenta)
-        this.app.post(this.pathCuentas, postCuenta)
-        this.app.put(this.pathCuentas, putCuenta)
-        this.app.delete(this.pathCuentas, deleteCuenta)
+        // this.app.get(this.pathCuentas, getCuenta)
+        // this.app.post(this.pathCuentas, postCuenta)
+        // this.app.put(this.pathCuentas, putCuenta)
+        // this.app.put(this.pathCuentas, Consignar)
+        // this.app.put(this.pathCuentas, Retirar)
+        // this.app.delete(this.pathCuentas, deleteCuenta)
 
     }
     listen(){

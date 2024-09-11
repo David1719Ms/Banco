@@ -5,9 +5,15 @@ const cuentaSchema = new Schema({
     documentoCliente: { type: String, unique: true, required: true },
     fechaApertura: { type: Date },
     saldo: {type: Number},
-    claveAcceso: { type: String, maxlength: 4, minlenght: 4, timestamp: true, versionkey: false },
+    claveAcceso: { type: String, maxlength: 100, minlenght: 4},
+    observaciones: {type: String},
+    estado: {type: String}
     
-});
+},
+{
+ versionkey: false 
+}
+);
 
 
 
